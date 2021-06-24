@@ -220,6 +220,18 @@ use both at the same time
 
 #+end_src
 
+** Keyboard behavior
+*** Make ESC quit prompts
+
+#+begin_src emacs-lisp
+
+(global-set-key
+ (kbd "<escape>") 'keyboard-escape-quit
+)
+
+#+end_src
+
+
 * function definitions
 ** window-split-toggle
 Toggle between horizontal and vertical split with two windows.  and
@@ -342,16 +354,6 @@ function swiper needed to install swiper for the error to go away
 #+end_src
 
 * Keyboard behavior
-** Make ESC quit prompts
-
-#+begin_src emacs-lisp
-
-(global-set-key
- (kbd "<escape>") 'keyboard-escape-quit
-)
-
-#+end_src
-
 ** bind save buffer
 rebinding save-buffer
 

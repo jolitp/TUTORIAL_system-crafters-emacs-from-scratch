@@ -98,6 +98,10 @@
   (ivy-mode 1)
 )
 
+(global-set-key
+ (kbd "<escape>") 'keyboard-escape-quit
+)
+
 (defun window-split-toggle ()
   (interactive)
   (if (> (length (window-list)) 2)
@@ -150,10 +154,6 @@
   ([remap describe-command] . helpful-command)
   ([remap describe-variable] . counsel-describe-variable)
   ([remap describe-key] . helpful-key)
-)
-
-(global-set-key
- (kbd "<escape>") 'keyboard-escape-quit
 )
 
 (global-set-key (kbd "C-s") 'save-buffer)
