@@ -75,6 +75,29 @@
 
 (use-package command-log-mode)
 
+(use-package ivy
+  ;; diminish hides the minor mode 
+  ;; from the modeline
+  :diminish
+  :bind (
+	 ("M-s" . swiper)
+         :map ivy-minibuffer-map
+         ("TAB" . ivy-alt-done)	
+         ("C-l" . ivy-alt-done)
+         ("C-j" . ivy-next-line)
+         ("C-k" . ivy-previous-line)
+         :map ivy-switch-buffer-map
+         ("C-k" . ivy-previous-line)
+         ("C-l" . ivy-done)
+         ("C-d" . ivy-switch-buffer-kill)
+         :map ivy-reverse-i-search-map
+         ("C-k" . ivy-previous-line)
+         ("C-d" . ivy-reverse-i-search-kill)
+	)
+  :config
+  (ivy-mode 1)
+)
+
 (defun window-split-toggle ()
   (interactive)
   (if (> (length (window-list)) 2)
@@ -113,29 +136,6 @@
 
 (use-package swiper
   :ensure t)
-
-(use-package ivy
-  ;; diminish hides the minor mode 
-  ;; from the modeline
-  :diminish
-  :bind (
-	 ("M-s" . swiper)
-         :map ivy-minibuffer-map
-         ("TAB" . ivy-alt-done)	
-         ("C-l" . ivy-alt-done)
-         ("C-j" . ivy-next-line)
-         ("C-k" . ivy-previous-line)
-         :map ivy-switch-buffer-map
-         ("C-k" . ivy-previous-line)
-         ("C-l" . ivy-done)
-         ("C-d" . ivy-switch-buffer-kill)
-         :map ivy-reverse-i-search-map
-         ("C-k" . ivy-previous-line)
-         ("C-d" . ivy-reverse-i-search-kill)
-	)
-  :config
-  (ivy-mode 1)
-)
 
 (use-package counsel
   :ensure t)

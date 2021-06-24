@@ -188,6 +188,38 @@ this is more useful for him to help in the video, but can be useful for me too
 
 #+end_src
 
+** Ivy
+
+one of the 2 completion frameworks for emacs the other is helm you can
+use both at the same time
+
+#+begin_src emacs-lisp
+
+(use-package ivy
+  ;; diminish hides the minor mode 
+  ;; from the modeline
+  :diminish
+  :bind (
+	 ("M-s" . swiper)
+         :map ivy-minibuffer-map
+         ("TAB" . ivy-alt-done)	
+         ("C-l" . ivy-alt-done)
+         ("C-j" . ivy-next-line)
+         ("C-k" . ivy-previous-line)
+         :map ivy-switch-buffer-map
+         ("C-k" . ivy-previous-line)
+         ("C-l" . ivy-done)
+         ("C-d" . ivy-switch-buffer-kill)
+         :map ivy-reverse-i-search-map
+         ("C-k" . ivy-previous-line)
+         ("C-d" . ivy-reverse-i-search-kill)
+	)
+  :config
+  (ivy-mode 1)
+)
+
+#+end_src
+
 * function definitions
 ** window-split-toggle
 Toggle between horizontal and vertical split with two windows.  and
@@ -279,38 +311,6 @@ function swiper needed to install swiper for the error to go away
 (use-package swiper
   :ensure t)
 
-
-#+end_src
-
-* Ivy
-
-one of the 2 completion frameworks for emacs the other is helm you can
-use both at the same time
-
-#+begin_src emacs-lisp
-
-(use-package ivy
-  ;; diminish hides the minor mode 
-  ;; from the modeline
-  :diminish
-  :bind (
-	 ("M-s" . swiper)
-         :map ivy-minibuffer-map
-         ("TAB" . ivy-alt-done)	
-         ("C-l" . ivy-alt-done)
-         ("C-j" . ivy-next-line)
-         ("C-k" . ivy-previous-line)
-         :map ivy-switch-buffer-map
-         ("C-k" . ivy-previous-line)
-         ("C-l" . ivy-done)
-         ("C-d" . ivy-switch-buffer-kill)
-         :map ivy-reverse-i-search-map
-         ("C-k" . ivy-previous-line)
-         ("C-d" . ivy-reverse-i-search-kill)
-	)
-  :config
-  (ivy-mode 1)
-)
 
 #+end_src
 
@@ -1513,4 +1513,4 @@ evil-collection.
 ** create a git repo for this project
 
 ** stopped at
-https://youtu.be/74zOY-vgkyw?t=1478
+https://youtu.be/74zOY-vgkyw?t=1810
