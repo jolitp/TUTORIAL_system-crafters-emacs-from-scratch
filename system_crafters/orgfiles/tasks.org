@@ -1,0 +1,21 @@
+* active
+
+** NEXT merge the pr
+DEADLINE: <2021-05-27 Thu>
+
+** TODO buy milk                                             :note:idea:tag:
+
+** DONE finish documentatation
+CLOSED: [2021-05-26 Wed 17:18] SCHEDULED: <2021-05-27 Thu>
+
+** DONE dummy
+afsaf
+** DONE dummy 2
+** asdf
+* backlog
+* Inbox 
+
+** TODO this is a new task 
+  [2021-05-26 Wed 23:29]
+  [[file:~/.system-crafters/orgfiles/tasks.org::*Inbox][Inbox]]
+

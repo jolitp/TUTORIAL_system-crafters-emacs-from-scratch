@@ -1,0 +1,152 @@
+* 1st level
+  asdfg
+** 2nd level
+
+asdfg
+*** 3rd level
+
+asdfg
+**** 4th level
+
+asdfg
+***** 5th level
+
+asdfg
+****** 6th level
+
+asdfg
+******* 7th level
+
+asdfg
+******** 8th level
+
+* first heading
+  
+here is *some* content afdsaf jsdjfksdaj ;lhjsda;lf hlk;dshf lk;dsjh flk;dhs; flhdslk;f hjksldjf;lksdajhf ;lksadhf;lskdah lk;fhjdslk;af has;dklhflk;
+
+** sub heading
+
+   add some more content
+
+   
+* second heading
+  
+* links 
+
+  here is the [[http://orgmode.org][org mode homepage]]
+
+  selecting the text that will be the description,
+  press M-x org-insert-link
+  
+  to open a link:
+  put the cursor on the link and press either:
+  M-x org-open-at-point, or C-c C-o (by default)
+  
+* tables
+
+ | name | age | uses emacs |
+ | dave |  22 | no         |
+ |      |     |            |
+  
+  lines that start with | [word] 
+  are considered tables
+
+  press tab while editing/adding to a table
+  and it reformats the table with the separators on the right
+  place and puts the cursor at the next cel
+  
+* lists
+* simple lists
+
+  - first item
+  - second item
+  - third item
+    
+lines starting with - [word] are considered lists
+
+pressing M-RETURN at the end of list line 
+adds the new list item below
+
+* checklists
+
+   - [ ] one
+   - [ ] 
+     
+to check the item press
+M-x org-toggle-checkbox, or C-c C-x C-b (by default)
+
+to add a new checklist item press:
+M-S-RETURN 
+
+** TODO QUESTION: how to make [-] states like in doom?
+
+* source blocks
+
+#+begin_src emacs-lisp
+
+(defun my-elisp-func ()
+  (message "hello"))
+
+#+end_src
+
+#+RESULTS:
+: my-elisp-func
+
+** _
+
+#+begin_src python :results output
+  
+  def greeting():
+      return "hello"
+
+  print(greeting())
+  
+#+end_src
+
+#+RESULTS:
+: hello
+
+** code block insertion snippet
+
+ <el TAB
+
+#+begin_src emacs-lisp
+
+#+end_src
+
+ <py TAB
+
+#+begin_src python
+
+#+end_src
+
+* todo lists
+123456789_123456789_123456789_123456789_123456789_123456789_123456789_123456789_123456789_123456789_123456789_123456789_
+_________1_________2_________3_________4_________5_________6_________7_________8_________9
+** TODO task
+
+* org mode commands:
+** C-RETURN (Ctrl enter) creates a new heading
+   in the same level as the cursor
+   
+   after the content 
+   
+   and enter insert mode on evil
+** M-RETURN (alt enter) creates a new heading
+   in the same level as the cursor
+   
+   at the cursor
+   
+   everything after the cursor is put into the heading
+   until a new line is found
+** M-<"up" or "down"> move header 
+   up moves header above previous header
+
+   down moves header below next header
+
+
+
+* stopped at
+
+video 7
+at 13 min

@@ -1,0 +1,1 @@
+("~/Projects/emacs_configs/" "~/Projects/automation_scripts/")

@@ -1,0 +1,15 @@
+;;;; Emacs Bookmark Format Version 1 ;;;; -*- coding: utf-8-emacs -*- 
+;;; This format is meant to be slightly human-readable;
+;;; nevertheless, you probably don't want to edit it.
+;;; -*- End Of Bookmark File Format Version Stamp -*-
+(("org-capture-last-stored"
+ (filename . "~/.system-crafters/orgfiles/tasks.org")
+ (front-context-string . "** TODO this is ")
+ (rear-context-string . "cklog\n* Inbox \n\n")
+ (position . 293))
+("org-refile-last-stored"
+ (filename . "~/.system-crafters/orgfiles/tasks.org")
+ (front-context-string . "** asdf\n* backlo")
+ (rear-context-string . "** DONE dummy 2\n")
+ (position . 265))
+)
