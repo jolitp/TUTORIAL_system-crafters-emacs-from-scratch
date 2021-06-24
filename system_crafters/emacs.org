@@ -220,6 +220,17 @@ use both at the same time
 
 #+end_src
 
+
+** Counsel
+
+#+begin_src emacs-lisp
+
+(use-package counsel
+  :ensure t)
+
+#+end_src
+
+
 ** Keyboard behavior
 *** Make ESC quit prompts
 
@@ -323,15 +334,6 @@ function swiper needed to install swiper for the error to go away
 (use-package swiper
   :ensure t)
 
-
-#+end_src
-
-* Counsel
-
-#+begin_src emacs-lisp
-
-(use-package counsel
-  :ensure t)
 
 #+end_src
 

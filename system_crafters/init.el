@@ -98,6 +98,9 @@
   (ivy-mode 1)
 )
 
+(use-package counsel
+  :ensure t)
+
 (global-set-key
  (kbd "<escape>") 'keyboard-escape-quit
 )
@@ -139,9 +142,6 @@
 )
 
 (use-package swiper
-  :ensure t)
-
-(use-package counsel
   :ensure t)
 
 (use-package helpful
