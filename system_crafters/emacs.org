@@ -220,7 +220,6 @@ use both at the same time
 
 #+end_src
 
-
 ** Counsel
 
 #+begin_src emacs-lisp
@@ -230,6 +229,13 @@ use both at the same time
 
 #+end_src
 
+*** counsel-find-file
+
+shows the files in the directory in the minibuffer
+
+*** sounsel-switch-buffer
+
+shows the currently open buffers and lets you choose which one to switch to
 
 ** Keyboard behavior
 *** Make ESC quit prompts
@@ -242,7 +248,29 @@ use both at the same time
 
 #+end_src
 
+** doom modeline
 
+#+begin_src emacs-lisp
+
+(use-package doom-modeline
+  :ensure t
+  :init (doom-modeline-mode 1)
+  :custom (
+	   (doom-modeline-height 10)
+	  )
+)
+
+#+end_src
+
+** tips and tricks
+*** M-x
+
+M stants for =meta= which nowadays means the Alt key
+
+the M-x keybinding by default binds to =run command=
+
+with it you can run any command programmed in Emacs
+including all of the commands from packages installed
 * function definitions
 ** window-split-toggle
 Toggle between horizontal and vertical split with two windows.  and
@@ -423,20 +451,6 @@ displayed correctly
 #+begin_src emacs-lisp
 
 (use-package all-the-icons)
-
-#+end_src
-
-* doom modeline
-
-#+begin_src emacs-lisp
-
-(use-package doom-modeline
-  :ensure t
-  :init (doom-modeline-mode 1)
-  :custom (
-	   (doom-modeline-height 10)
-	  )
-)
 
 #+end_src
 
@@ -1283,7 +1297,6 @@ to remove an existing keybind use
 use =M-:= to enter an lisp expression on the minibuffer and eval it good
 to unset a keybinding
 
-
 ** check matching parenthesis under cursor
 
 to check if there are problems in the parenthesis in lisp use M-x
@@ -1517,4 +1530,4 @@ evil-collection.
 ** create a git repo for this project
 
 ** stopped at
-https://youtu.be/74zOY-vgkyw?t=1810
+resumed

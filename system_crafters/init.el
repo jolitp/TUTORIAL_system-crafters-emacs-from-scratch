@@ -105,6 +105,14 @@
  (kbd "<escape>") 'keyboard-escape-quit
 )
 
+(use-package doom-modeline
+  :ensure t
+  :init (doom-modeline-mode 1)
+  :custom (
+	   (doom-modeline-height 10)
+	  )
+)
+
 (defun window-split-toggle ()
   (interactive)
   (if (> (length (window-list)) 2)
@@ -180,14 +188,6 @@
 )
 
 (use-package all-the-icons)
-
-(use-package doom-modeline
-  :ensure t
-  :init (doom-modeline-mode 1)
-  :custom (
-	   (doom-modeline-height 10)
-	  )
-)
 
 (use-package general)	  
 
