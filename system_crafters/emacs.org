@@ -18,7 +18,8 @@ https://www.youtube.com/playlist?list=PLEoMzSkcN8oPH1au7H6B7bBJ4ZO7BXjSZ
 https://github.com/daviwil/emacs-from-scratch
 ** daviwil's configuration
 https://github.com/daviwil/dotfiles/blob/master/Emacs.org
-* Emacs From Scratch #1 - Getting Started with a Basic Usable Configuration
+* DONE Emacs From Scratch #1 - Getting Started with a Basic Usable Configuration
+https://www.youtube.com/watch?v=74zOY-vgkyw&list=PLEoMzSkcN8oPH1au7H6B7bBJ4ZO7BXjSZ&index=1
 ** describe commands
 by default =C-h= host the help commands
 
@@ -256,8 +257,8 @@ shows the currently open buffers and lets you choose which one to switch to
   :ensure t
   :init (doom-modeline-mode 1)
   :custom (
-	   (doom-modeline-height 10)
-	  )
+	      (doom-modeline-height 10)
+	    )
 )
 
 #+end_src
@@ -271,6 +272,10 @@ the M-x keybinding by default binds to =run command=
 
 with it you can run any command programmed in Emacs
 including all of the commands from packages installed
+* TODO Emacs From Scratch #2 - Adding Helpful UI Improvements
+https://www.youtube.com/watch?v=IspAZtNTslY&list=PLEoMzSkcN8oPH1au7H6B7bBJ4ZO7BXjSZ&index=2
+** 
+
 * function definitions
 ** window-split-toggle
 Toggle between horizontal and vertical split with two windows.  and
@@ -327,26 +332,6 @@ procedure to setup org mode
   )
   
 #+end_src
-
-** first install guard
-  
-the below snippet handles the case of first install, if you put this
-config on a fresh istall or emacs with no downloaded packages
-
-Download descriptions of all configured ELPA packages.  For each
-archive configured in the variable ‘package-archives’, inform Emacs
-about the latest versions of all packages it offers, and make them
-available for download.  Optional argument ASYNC specifies whether to
-perform the downloads in the background.
- 
-#+begin_src emacs-lisp
-
-(unless package-archive-contents
- (package-refresh-contents)
-)
-
-#+end_src
-
 * Swiper
 
 Swiper is the interactive find I've been using with =SPC s s=
@@ -1530,4 +1515,4 @@ evil-collection.
 ** create a git repo for this project
 
 ** stopped at
-resumed
+https://www.youtube.com/watch?v=IspAZtNTslY&list=PLEoMzSkcN8oPH1au7H6B7bBJ4ZO7BXjSZ&index=2

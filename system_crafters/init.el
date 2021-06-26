@@ -109,8 +109,8 @@
   :ensure t
   :init (doom-modeline-mode 1)
   :custom (
-	   (doom-modeline-height 10)
-	  )
+	      (doom-modeline-height 10)
+	    )
 )
 
 (defun window-split-toggle ()
@@ -143,10 +143,6 @@
                  (display-line-numbers-mode 0)
                  )
   )
-)
-
-(unless package-archive-contents
- (package-refresh-contents)
 )
 
 (use-package swiper
