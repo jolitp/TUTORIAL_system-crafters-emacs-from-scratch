@@ -1,3 +1,22 @@
+(defun window-split-toggle ()
+  (interactive)
+  (if (> (length (window-list)) 2)
+      (error "Can't toggle with more than 2 windows!")
+    (let ((func (if (window-full-height-p)
+                    #'split-window-vertically
+                  #'split-window-horizontally)))
+      (delete-other-windows)
+      (funcall func)
+      (save-selected-window
+        (other-window 1)
+        (switch-to-buffer (other-buffer))))))
+
+(defun efs/org-mode-setup ()
+  (org-indent-mode)
+  (variable-pitch-mode 1)
+  (visual-line-mode)
+)
+
 ; initialize package sources
 (require 'package)
 
@@ -164,31 +183,12 @@
   ([remap describe-key] . helpful-key)
 )
 
-(defun window-split-toggle ()
-  (interactive)
-  (if (> (length (window-list)) 2)
-      (error "Can't toggle with more than 2 windows!")
-    (let ((func (if (window-full-height-p)
-                    #'split-window-vertically
-                  #'split-window-horizontally)))
-      (delete-other-windows)
-      (funcall func)
-      (save-selected-window
-        (other-window 1)
-        (switch-to-buffer (other-buffer))))))
-
-(defun efs/org-mode-setup ()
-  (org-indent-mode)
-  (variable-pitch-mode 1)
-  (visual-line-mode)
-)
+(use-package all-the-icons)
 
 (use-package swiper
   :ensure t)
 
 (global-set-key (kbd "C-s") 'save-buffer)
-
-(use-package all-the-icons)
 
 (use-package general)	  
 

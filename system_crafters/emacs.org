@@ -7,6 +7,44 @@ when adding a property like the above, it needs to be re-evaluated
 before taking effect re-evaluate by putting the cursor on that line
 and pressing =C-c C-c= or by running =M-x org-mode=
 
+* function definitions
+** window-split-toggle
+Toggle between horizontal and vertical split with two windows.  and
+only two windows
+
+#+begin_src emacs-lisp
+
+(defun window-split-toggle ()
+  (interactive)
+  (if (> (length (window-list)) 2)
+      (error "Can't toggle with more than 2 windows!")
+    (let ((func (if (window-full-height-p)
+                    #'split-window-vertically
+                  #'split-window-horizontally)))
+      (delete-other-windows)
+      (funcall func)
+      (save-selected-window
+        (other-window 1)
+        (switch-to-buffer (other-buffer))))))
+
+#+end_src
+
+** org-mode-setup
+
+procedure to setup org mode
+
+(I think he did it this way only to show how functions work in emacs)
+
+#+begin_src emacs-lisp
+
+(defun efs/org-mode-setup ()
+  (org-indent-mode)
+  (variable-pitch-mode 1)
+  (visual-line-mode)
+)
+
+#+end_src
+
 * Emacs From Scratch by David Willson
 ** youtube playlist
 https://www.youtube.com/playlist?list=PLEoMzSkcN8oPH1au7H6B7bBJ4ZO7BXjSZ
@@ -268,7 +306,7 @@ the M-x keybinding by default binds to =run command=
 
 with it you can run any command programmed in Emacs
 including all of the commands from packages installed
-* TODO Emacs From Scratch #2 - Adding Helpful UI Improvements
+* DONE Emacs From Scratch #2 - Adding Helpful UI Improvements
 https://www.youtube.com/watch?v=IspAZtNTslY&list=PLEoMzSkcN8oPH1au7H6B7bBJ4ZO7BXjSZ&index=2
 ** line numbers
 
@@ -368,7 +406,6 @@ gives more information
   
 #+end_src
 
-
 ** helpful
 
 #+begin_src emacs-lisp
@@ -387,42 +424,21 @@ gives more information
 
 #+end_src
 
+** doom-themes
+already added at part 1
+* TODO Emacs From Scratch #3 - Key Bindings and Evil
 
-* function definitions
-** window-split-toggle
-Toggle between horizontal and vertical split with two windows.  and
-only two windows
+** all the icons
 
-#+begin_src emacs-lisp
+the first time you load your configuration on a new machine, you'll
+need to run the following command so that the icons are downloaded and
+displayed correctly
 
-(defun window-split-toggle ()
-  (interactive)
-  (if (> (length (window-list)) 2)
-      (error "Can't toggle with more than 2 windows!")
-    (let ((func (if (window-full-height-p)
-                    #'split-window-vertically
-                  #'split-window-horizontally)))
-      (delete-other-windows)
-      (funcall func)
-      (save-selected-window
-        (other-window 1)
-        (switch-to-buffer (other-buffer))))))
-
-#+end_src
-
-** org-mode-setup
-
-procedure to setup org mode
-
-(I think he did it this way only to show how functions work in emacs)
+=M-x all-the-icons-install-fonts=
 
 #+begin_src emacs-lisp
 
-(defun efs/org-mode-setup ()
-  (org-indent-mode)
-  (variable-pitch-mode 1)
-  (visual-line-mode)
-)
+(use-package all-the-icons)
 
 #+end_src
 
@@ -451,20 +467,6 @@ rebinding save-buffer
 #+begin_src emacs-lisp
 
 (global-set-key (kbd "C-s") 'save-buffer)
-
-#+end_src
-
-* all the icons
-
-the first time you load your configuration on a new machine, you'll
-need to run the following command so that the icons are downloaded and
-displayed correctly
-
-=M-x all-the-icons-install-fonts=
-
-#+begin_src emacs-lisp
-
-(use-package all-the-icons)
 
 #+end_src
 
@@ -1003,7 +1005,6 @@ buffer that appear
 
 #+end_src
 
-
 ** org-refile
 
 move DONE items ton archive file 
@@ -1214,7 +1215,6 @@ uses a generic key = value pair for configuration
   value = 42
   value = "string"
 #+end_src
-
 
 
 
