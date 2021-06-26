@@ -150,7 +150,6 @@
          ("C-r" . 'counsel-minibuffer-history)
         )
   :config
-  (setq ivy-install-inputs-alist nil) ; don't start searches with ^
 )
 
 (defun window-split-toggle ()
