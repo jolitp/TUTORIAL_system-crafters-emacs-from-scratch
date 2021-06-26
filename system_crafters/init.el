@@ -127,6 +127,9 @@
   )
 )
 
+(use-package rainbow-delimiters
+  :hook (prog-mode . rainbow-delimiters-mode))
+
 (defun window-split-toggle ()
   (interactive)
   (if (> (length (window-list)) 2)

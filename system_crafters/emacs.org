@@ -298,7 +298,14 @@ https://www.youtube.com/watch?v=IspAZtNTslY&list=PLEoMzSkcN8oPH1au7H6B7bBJ4ZO7BX
   
 #+end_src
 
+*** rainbow delimeters
 
+#+begin_src emacs-lisp
+  
+  (use-package rainbow-delimiters
+    :hook (prog-mode . rainbow-delimiters-mode))
+
+#+end_src
 * function definitions
 ** window-split-toggle
 Toggle between horizontal and vertical split with two windows.  and
@@ -1526,4 +1533,4 @@ evil-collection.
 ** create a git repo for this project
 
 ** stopped at
-https://www.youtube.com/watch?v=IspAZtNTslY&list=PLEoMzSkcN8oPH1au7H6B7bBJ4ZO7BXjSZ&index=2
+https://youtu.be/IspAZtNTslY?t=772
