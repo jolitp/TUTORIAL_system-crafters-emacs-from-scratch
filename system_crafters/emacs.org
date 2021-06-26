@@ -441,8 +441,10 @@ displayed correctly
 (use-package all-the-icons)
 
 #+end_src
+* my own config
+** keybindings for closing emacs
 
-* Swiper
+* swiper
 
 Swiper is the interactive find I've been using with =SPC s s=
 
@@ -492,35 +494,36 @@ global key prefix like <space> in spacemacs to od this you call
 =(general-create-definer ...)=
 
 #+begin_src emacs-lisp
-(use-package general
-  :config
-  (general-create-definer rune/leader-keys
-    :keymaps '(normal insert visual emacs)
-    :prefix "SPC"
-    :global-prefix "C-SPC")
+  (use-package general
+    :config
+    (general-create-definer rune/leader-keys
+      :keymaps '(normal insert visual emacs)
+      :prefix "SPC"
+      :global-prefix "C-SPC")
+    
+    (rune/leader-keys
+     "t" '(
+           :ignore t
+           :which-key "toggles"
+           )
+     "tt" '(counsel-load-theme :which-key "choose theme")
+     "fs" '(save-buffer :which-key "save buffer")
+     "ss" '(swiper :which-key "search")
+     ":" '(counsel-M-x :which-key "run command")
+     "ff" '(counsel-find-file :which-key "find file")
+     ";" '(eval-last-sexp :which-key "eval expression")
+     "TAB" '(counsel-switch-buffer :which-key "switch buffer")
+     "bd" '(kill-buffer :which-key "delete buffer")
+     "bk" '(kill-buffer :which-key "kill buffer")
+     "bn" '(next-buffer :which-key "next buffer")
+     "bp" '(previous-buffer :which-key "previous buffer")
+     "qq" '(save-buffers-kill-emacs :which-key "quit emacs")
   
-  (rune/leader-keys
-   "t" '(
-	 :ignore t
-	 :which-key "toggles"
-	 )
-   "tt" '(counsel-load-theme :which-key "choose theme")
-   "fs" '(save-buffer :which-key "save buffer")
-   "ss" '(swiper :which-key "search")
-   ":" '(counsel-M-x :which-key "run command")
-   "ff" '(counsel-find-file :which-key "find file")
-   ";" '(eval-last-sexp :which-key "eval expression")
-   "TAB" '(counsel-switch-buffer :which-key "switch buffer")
-   "bd" '(kill-buffer :which-key "delete buffer")
-   "bk" '(kill-buffer :which-key "kill buffer")
-   "bn" '(next-buffer :which-key "next buffer")
-   "bp" '(previous-buffer :which-key "previous buffer")
-
-   ;; not working?
-   "tw" '(window-split-toggle :which-key "toggle window split h/v")
+     ;; not working?
+     "tw" '(window-split-toggle :which-key "toggle window split h/v")
+    )
   )
-)
-
+  
 #+end_src
 
 * evil-mode

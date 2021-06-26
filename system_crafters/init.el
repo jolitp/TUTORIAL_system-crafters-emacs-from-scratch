@@ -205,12 +205,12 @@
     :keymaps '(normal insert visual emacs)
     :prefix "SPC"
     :global-prefix "C-SPC")
-  
+
   (rune/leader-keys
    "t" '(
-	 :ignore t
-	 :which-key "toggles"
-	 )
+         :ignore t
+         :which-key "toggles"
+         )
    "tt" '(counsel-load-theme :which-key "choose theme")
    "fs" '(save-buffer :which-key "save buffer")
    "ss" '(swiper :which-key "search")
@@ -222,6 +222,7 @@
    "bk" '(kill-buffer :which-key "kill buffer")
    "bn" '(next-buffer :which-key "next buffer")
    "bp" '(previous-buffer :which-key "previous buffer")
+   "qq" '(save-buffers-kill-emacs :which-key "quit emacs")
 
    ;; not working?
    "tw" '(window-split-toggle :which-key "toggle window split h/v")
