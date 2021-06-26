@@ -1,5 +1,3 @@
-;; now testing tangle on save
-
 ; initialize package sources
 (require 'package)
 
@@ -113,6 +111,22 @@
 	    )
 )
 
+(column-number-mode)
+(global-display-line-numbers-mode t)
+
+(dolist
+  (mode '(org-mode-hook
+          term-mode-hook
+          shell-mode-hook
+          eshel-mode-hook
+         )
+  )
+  (add-hook mode (lambda ()
+                 (display-line-numbers-mode 0)
+                 )
+  )
+)
+
 (defun window-split-toggle ()
   (interactive)
   (if (> (length (window-list)) 2)
@@ -130,19 +144,6 @@
   (org-indent-mode)
   (variable-pitch-mode 1)
   (visual-line-mode)
-)
-
-(dolist
-  (mode '(org-mode-hook
-          term-mode-hook
-          shell-mode-hook
-          eshel-mode-hook
-         )
-  )
-  (add-hook mode (lambda ()
-                 (display-line-numbers-mode 0)
-                 )
-  )
 )
 
 (use-package swiper

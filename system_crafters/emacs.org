@@ -7,10 +7,6 @@ when adding a property like the above, it needs to be re-evaluated
 before taking effect re-evaluate by putting the cursor on that line
 and pressing =C-c C-c= or by running =M-x org-mode=
 
-#+begin_src emacs-lisp
-  ;; now testing tangle on save
-#+end_src
- 
 * Emacs From Scratch by David Willson
 ** youtube playlist
 https://www.youtube.com/playlist?list=PLEoMzSkcN8oPH1au7H6B7bBJ4ZO7BXjSZ
@@ -274,7 +270,34 @@ with it you can run any command programmed in Emacs
 including all of the commands from packages installed
 * TODO Emacs From Scratch #2 - Adding Helpful UI Improvements
 https://www.youtube.com/watch?v=IspAZtNTslY&list=PLEoMzSkcN8oPH1au7H6B7bBJ4ZO7BXjSZ&index=2
-** 
+** line numbers
+
+#+begin_src emacs-lisp
+  
+  (column-number-mode)
+  (global-display-line-numbers-mode t)
+
+#+end_src
+
+*** disable line number for some modes
+
+#+begin_src emacs-lisp
+  
+  (dolist
+    (mode '(org-mode-hook
+            term-mode-hook
+            shell-mode-hook
+            eshel-mode-hook
+           )
+    )
+    (add-hook mode (lambda ()
+                   (display-line-numbers-mode 0)
+                   )
+    )
+  )
+  
+#+end_src
+
 
 * function definitions
 ** window-split-toggle
@@ -314,24 +337,6 @@ procedure to setup org mode
 
 #+end_src
 
-* disable line number for some modes
-
-#+begin_src emacs-lisp
-  
-  (dolist
-    (mode '(org-mode-hook
-            term-mode-hook
-            shell-mode-hook
-            eshel-mode-hook
-           )
-    )
-    (add-hook mode (lambda ()
-                   (display-line-numbers-mode 0)
-                   )
-    )
-  )
-  
-#+end_src
 * Swiper
 
 Swiper is the interactive find I've been using with =SPC s s=
@@ -1454,9 +1459,15 @@ like in the snippet below
 why he puts :ensure on other require packages?
 
 isin't it redundant?
- 
+** show bars above and below the cursor line
+like in vscode
+** highlight current line
 * missing behavior/config
+** keybidings
+*** SPC q q 
+quit emacs
 ** org bullets
+** relative line numbers in normal mode and absolute line numbers in edit mode
 ** in org mode src blocks don't zoom in and out
 in org mode src blocks don't zoom in and out together with the rest of
 the text
