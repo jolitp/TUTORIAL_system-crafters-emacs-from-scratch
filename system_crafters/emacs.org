@@ -349,7 +349,7 @@ more details on completions from ivy
   
 #+end_src
 
-** counsel m-x
+** counsel
 use counsel instead of the default emacs minibuffer prompts, counsel
 gives more information
 
@@ -366,6 +366,25 @@ gives more information
     :config
   )
   
+#+end_src
+
+
+** helpful
+
+#+begin_src emacs-lisp
+
+(use-package helpful
+  :ensure t
+  :custom
+  (counsel-describe-function-function #'helpful-callable)
+  (counsel-describe-variable-function #'helpful-callable)
+  :bind
+  ([remap describe-function] . counsel-describe-function)
+  ([remap describe-command] . helpful-command)
+  ([remap describe-variable] . counsel-describe-variable)
+  ([remap describe-key] . helpful-key)
+)
+
 #+end_src
 
 
@@ -422,24 +441,6 @@ function swiper needed to install swiper for the error to go away
 (use-package swiper
   :ensure t)
 
-
-#+end_src
-
-* helpful
-
-#+begin_src emacs-lisp
-
-(use-package helpful
-  :ensure t
-  :custom
-  (counsel-describe-function-function #'helpful-callable)
-  (counsel-describe-variable-function #'helpful-callable)
-  :bind
-  ([remap describe-function] . counsel-describe-function)
-  ([remap describe-command] . helpful-command)
-  ([remap describe-variable] . counsel-describe-variable)
-  ([remap describe-key] . helpful-key)
-)
 
 #+end_src
 
@@ -1549,4 +1550,4 @@ evil-collection.
 ** create a git repo for this project
 
 ** stopped at
-https://youtu.be/IspAZtNTslY?t=1426
+https://youtu.be/IspAZtNTslY?t=2004
