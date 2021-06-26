@@ -298,7 +298,7 @@ https://www.youtube.com/watch?v=IspAZtNTslY&list=PLEoMzSkcN8oPH1au7H6B7bBJ4ZO7BX
   
 #+end_src
 
-*** rainbow delimeters
+** rainbow delimeters
 
 #+begin_src emacs-lisp
   
@@ -306,6 +306,50 @@ https://www.youtube.com/watch?v=IspAZtNTslY&list=PLEoMzSkcN8oPH1au7H6B7bBJ4ZO7BX
     :hook (prog-mode . rainbow-delimiters-mode))
 
 #+end_src
+
+** which-key
+
+starts a panel pop up when you start to type a keybinding
+
+showing which keys are avainlable under that keybinding/prefix
+
+shows information on the commands that can be pressed after you press
+a key prefix, like =C-x= shows the keybindings for available commands
+and shows the name of the command
+
+#+begin_src emacs-lisp
+
+(use-package which-key
+  :init (which-key-mode)
+  :diminish which-key-mode
+  :config (setq which-key-idle-delay 0)
+)
+
+#+end_src
+
+** init and config keywords in lisp
+
+:config and :init are two sides of the kind of code you want to run
+when this package gets loaded
+
+init happens before the package is loaded, allowing to do
+preconfiguration for the package like setting variables
+also allowing to invoke the mode itself
+
+** ivy rich 
+
+more details on completions from ivy
+
+#+begin_src emacs-lisp
+  
+  (use-package ivy-rich
+    :init
+    (ivy-rich-mode 1)
+  )
+  
+#+end_src
+
+
 * function definitions
 ** window-split-toggle
 Toggle between horizontal and vertical split with two windows.  and
@@ -387,35 +431,6 @@ rebinding save-buffer
 #+begin_src emacs-lisp
 
 (global-set-key (kbd "C-s") 'save-buffer)
-
-#+end_src
-
-* which key
-
-shows information on the commands that can be pressed after you press
-a key prefix, like =C-x= shows the keybindings for available commands
-and shows the name of the command
-
-#+begin_src emacs-lisp
-
-(use-package which-key
-  :init (which-key-mode)
-  :diminish which-key-mode
-  :config (setq which-key-idle-delay 0)
-)
-
-#+end_src
-
-* ivy rich 
-
-more details on completions from ivy
-
-#+begin_src emacs-lisp
-
-(use-package ivy-rich
-  :init
-  (ivy-rich-mode 1)
-)
 
 #+end_src
 
@@ -1533,4 +1548,4 @@ evil-collection.
 ** create a git repo for this project
 
 ** stopped at
-https://youtu.be/IspAZtNTslY?t=772
+https://youtu.be/IspAZtNTslY?t=1426

@@ -130,6 +130,17 @@
 (use-package rainbow-delimiters
   :hook (prog-mode . rainbow-delimiters-mode))
 
+(use-package which-key
+  :init (which-key-mode)
+  :diminish which-key-mode
+  :config (setq which-key-idle-delay 0)
+)
+
+(use-package ivy-rich
+  :init
+  (ivy-rich-mode 1)
+)
+
 (defun window-split-toggle ()
   (interactive)
   (if (> (length (window-list)) 2)
@@ -165,17 +176,6 @@
 )
 
 (global-set-key (kbd "C-s") 'save-buffer)
-
-(use-package which-key
-  :init (which-key-mode)
-  :diminish which-key-mode
-  :config (setq which-key-idle-delay 0)
-)
-
-(use-package ivy-rich
-  :init
-  (ivy-rich-mode 1)
-)
 
 (use-package counsel
   :bind (
