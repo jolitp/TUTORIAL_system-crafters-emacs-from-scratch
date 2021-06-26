@@ -143,12 +143,14 @@
 
 (use-package counsel
   :bind (
-	 ("M-x" . counsel-M-x)
-	 ("C-x b" . counsel-buffer)
-	 ("C-x C-f" . counsel-find-file)
-	 :map minibuffer-local-map
-	 ("C-r" . 'counsel-minibuffer-history)
-  )
+         ("M-x" . counsel-M-x)
+         ("C-x b" . counsel-buffer)
+         ("C-x C-f" . counsel-find-file)
+         :map minibuffer-local-map
+         ("C-r" . 'counsel-minibuffer-history)
+        )
+  :config
+  (setq ivy-install-inputs-alist nil) ; don't start searches with ^
 )
 
 (defun window-split-toggle ()
