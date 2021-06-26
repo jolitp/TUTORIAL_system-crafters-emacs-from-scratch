@@ -141,6 +141,16 @@
   (ivy-rich-mode 1)
 )
 
+(use-package counsel
+  :bind (
+	 ("M-x" . counsel-M-x)
+	 ("C-x b" . counsel-buffer)
+	 ("C-x C-f" . counsel-find-file)
+	 :map minibuffer-local-map
+	 ("C-r" . 'counsel-minibuffer-history)
+  )
+)
+
 (defun window-split-toggle ()
   (interactive)
   (if (> (length (window-list)) 2)
@@ -176,16 +186,6 @@
 )
 
 (global-set-key (kbd "C-s") 'save-buffer)
-
-(use-package counsel
-  :bind (
-	 ("M-x" . counsel-M-x)
-	 ("C-x b" . counsel-buffer)
-	 ("C-x C-f" . counsel-find-file)
-	 :map minibuffer-local-map
-	 ("C-r" . 'counsel-minibuffer-history)
-  )
-)
 
 (use-package all-the-icons)
 
