@@ -272,8 +272,6 @@
   :config
   (evil-collection-init))
 
-(global-set-key (kbd "C-s") 'save-buffer)
-
 (use-package hydra) 
 
 (defhydra hydra-text-scale (
@@ -287,6 +285,8 @@
 
 (rune/leader-keys
   "ts" '(hydra-text-scale/body :which-key "scale text"))
+
+(global-set-key (kbd "C-s") 'save-buffer)
 
 (use-package projectile
   :diminish projectile-mode

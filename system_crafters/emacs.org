@@ -586,19 +586,8 @@ modes/parts of emacs
 
 #+end_src
  
-* my own config
-** keybindings for closing emacs
-* Keyboard behavior
-** bind save buffer
-rebinding save-buffer
 
-#+begin_src emacs-lisp
-
-(global-set-key (kbd "C-s") 'save-buffer)
-
-#+end_src
-
-* hydra
+** hydra
 
 allows to set transient keybindings (temporary keybindings)
 
@@ -621,6 +610,18 @@ Hydra.
 
 (rune/leader-keys
   "ts" '(hydra-text-scale/body :which-key "scale text"))
+
+#+end_src
+
+* my own config
+** keybindings for closing emacs
+* Keyboard behavior
+** bind save buffer
+rebinding save-buffer
+
+#+begin_src emacs-lisp
+
+(global-set-key (kbd "C-s") 'save-buffer)
 
 #+end_src
 
@@ -1562,7 +1563,7 @@ is it still slow on an ssd?
 ** colored braces missing
 * unnecessary configs 
 ** evil-magit
-no longer needed and wont work anymore since I use efil-collection
+no longer needed and wont work anymore since I use evil-collection
 
 =(use-package evil-magit=
 =:after magit=
@@ -1575,6 +1576,8 @@ NOTE [2020-11-24]:
 This repository is no longer maintained. 
 This package is now a part of 
 evil-collection.
+* todos
+** go back on the videos and take notes of the tips and tricks he says
 * emacs from scratch followalong
 ** go back to earlier videos and separate config based on video
 
