@@ -45,6 +45,24 @@ procedure to setup org mode
 
 #+end_src
 
+** evil-hook
+
+#+begin_src emacs-lisp
+  
+  (defun rune/evil-hook ()
+    (dolist (mode '(custom-mode
+                    eshel-mode
+                    git-rebase-mode
+                    erc-mode
+                    circe-server-mode
+                    circe-chat-mode
+                    circe-query-mode
+                    sauron-mode
+                    term-mode))
+      (add-to-list 'evil-emacs-state-modes mode)))
+
+#+end_src
+
 * Emacs From Scratch by David Willson
 ** youtube playlist
 https://www.youtube.com/playlist?list=PLEoMzSkcN8oPH1au7H6B7bBJ4ZO7BXjSZ
@@ -61,7 +79,6 @@ notable sub items of that are:
 =describe-function=
 =describe-variable=
 =describe-key=
-
 
 ** Package sources
 
@@ -520,39 +537,41 @@ global key prefix like <space> in spacemacs to add this you call
 vim keybindings in emacs
 
 #+begin_src emacs-lisp
-
-(use-package evil
-  :init
-  (setq evil-want-integration t)
-  (setq evil-want-keybinding nil)
-  (setq evil-want-C-u-scroll t)
-  (setq evil-want-C-i-jump nil)
-  :config
-  (evil-mode 1) 
-  ;; bind keys only in insert mode
-  ;; (define-key evil-insert-state-map (kbd "C-g") 'evil-normal-state)
-  ;; (define-key-evil-insert-state-map (kbd "C-h") 'evil-delete-backward-char-and-join)
-
-  ;;use visual line motions even outside of visual-line-mode buffers 
-  ;; AH! this is a config that I noticed changing in doom-emacs
-  ;;
-  ;; it makes the cursor interpret warpped-around lines as more than one line
-  ;;
-  ;; by default the warpped line is considered one line until the very end
-  (evil-global-set-key 'motion "j" 'evil-next-visual-line)
-  (evil-global-set-key 'motion "k" 'evil-previous-visual-line)
-  ;;strangelly_it_is_not_working
-
-  ;; (evil-set-initial-state 'messages-buffer-mode 'normal)
-  (evil-set-initial-state 'dashboard 'normal)
-)
-
-  ;; IMPORTANT! C-z puts you in emacs-mode
-  ;; a mode where evil-keybindings don't work
-  ;; I struggled with that in the past
-
+  
+  (use-package evil
+    :init
+    (setq evil-want-integration t)
+    (setq evil-want-keybinding nil)
+    (setq evil-want-C-u-scroll t)
+    (setq evil-want-C-i-jump nil)
+  
+    :hook (evil-mode . rune/evil-hook)
+    :config
+    (evil-mode 1) 
+    ;; bind keys only in insert mode (don't want that)
+    ;; (define-key evil-insert-state-map (kbd "C-g") 'evil-normal-state)
+    ;; (define-key-evil-insert-state-map (kbd "C-h") 'evil-delete-backward-char-and-join)
+  
+    ;;use visual line motions even outside of visual-line-mode buffers 
+    ;; AH! this is a config that I noticed changing in doom-emacs
+    ;;
+    ;; it makes the cursor interpret warpped-around lines as more than one line
+    ;;
+    ;; by default the warpped line is considered one line until the very end
+    (evil-global-set-key 'motion "j" 'evil-next-visual-line)
+    (evil-global-set-key 'motion "k" 'evil-previous-visual-line)
+    ;;strangelly_it_is_not_working
+  
+    ;; (evil-set-initial-state 'messages-buffer-mode 'normal)
+    (evil-set-initial-state 'dashboard 'normal)
+  )
+ 
 #+end_src
-
+ 
+ IMPORTANT! C-z puts you in emacs-mode
+ a mode where evil-keybindings don't work
+ I struggled with that in the past
+  
 * my own config
 ** keybindings for closing emacs
 * Keyboard behavior

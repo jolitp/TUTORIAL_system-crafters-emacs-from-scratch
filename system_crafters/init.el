@@ -17,6 +17,18 @@
   (visual-line-mode)
 )
 
+(defun rune/evil-hook ()
+  (dolist (mode '(custom-mode
+                  eshel-mode
+                  git-rebase-mode
+                  erc-mode
+                  circe-server-mode
+                  circe-chat-mode
+                  circe-query-mode
+                  sauron-mode
+                  term-mode))
+    (add-to-list 'evil-emacs-state-modes mode)))
+
 ; initialize package sources
 (require 'package)
 
@@ -233,9 +245,11 @@
   (setq evil-want-keybinding nil)
   (setq evil-want-C-u-scroll t)
   (setq evil-want-C-i-jump nil)
+
+  :hook (evil-mode . rune/evil-hook)
   :config
   (evil-mode 1) 
-  ;; bind keys only in insert mode
+  ;; bind keys only in insert mode (don't want that)
   ;; (define-key evil-insert-state-map (kbd "C-g") 'evil-normal-state)
   ;; (define-key-evil-insert-state-map (kbd "C-h") 'evil-delete-backward-char-and-join)
 
@@ -252,10 +266,6 @@
   ;; (evil-set-initial-state 'messages-buffer-mode 'normal)
   (evil-set-initial-state 'dashboard 'normal)
 )
-
-  ;; IMPORTANT! C-z puts you in emacs-mode
-  ;; a mode where evil-keybindings don't work
-  ;; I struggled with that in the past
 
 (global-set-key (kbd "C-s") 'save-buffer)
 
