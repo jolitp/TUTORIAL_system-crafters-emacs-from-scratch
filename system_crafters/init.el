@@ -290,28 +290,39 @@
   "ts" '(hydra-text-scale/body :which-key "scale text"))
 
 (use-package projectile
-  ;; hides projectile on the mode line
-  :diminish projectile-mode
+    ;; hides projectile on the mode line
+    :diminish projectile-mode
 
-  ;; runs projectile mode when the package gets loaded
-  :config (projectile-mode)
-  :custom ((projectile-completion-system 'ivy))
+    ;; runs projectile mode when the package gets loaded
+    :config (projectile-mode)
 
-  ;; gonna do that on other config to put under space
-  ;; binds projectile keybindings to C-c p
-  ;; :bind-keymap
-  ;; ("C-c p" . projectile-command-map)
+    ;; changes the completion to use ivy
+    :custom ((projectile-completion-system 'ivy))
 
-  :init
-  (when (file-directory-p "~/Projects")
-    (setq projectile-project-search-path '("~/Projects"))
+    ;; gonna do that on other config to put under space
+    ;; binds projectile keybindings to C-c p
+    ;; :bind-keymap
+    ;; ("C-c p" . projectile-command-map)
+
+    :init
+    ;; if the directory ~/Projects exists
+    (when (file-directory-p "~/Projects")
+      ;; search for projects in this directory
+;;      (setq projectile-project-search-path '("~/Projects"))
+        (setq projectile-project-search-path '(
+                                               "~/Projects"
+                                               "~"
+                                               ))
+    )
+
+    ;; when you switch projects show dired
+    (setq projectile-switch-project-action #'projectile-dired)
   )
-  (setq projectile-switch-project-action #'projectile-dired)
-)
 
-(use-package counsel-projectile
-  :config (counsel-projectile-mode)
-)
+  ;; 
+  (use-package counsel-projectile
+    :config (counsel-projectile-mode)
+  )
 
 (global-set-key (kbd "C-s") 'save-buffer)
 

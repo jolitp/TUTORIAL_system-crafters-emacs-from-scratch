@@ -621,40 +621,105 @@ Hydra.
 #+end_src
 
 * TODO Emacs From Scratch #4 - Projectile and Magit
-
 ** projectile
 
 Projectile is a project interaction library for Emacs.
 
-
-
 #+begin_src emacs-lisp
   
-  (use-package projectile
-    ;; hides projectile on the mode line
-    :diminish projectile-mode
+    (use-package projectile
+      ;; hides projectile on the mode line
+      :diminish projectile-mode
   
-    ;; runs projectile mode when the package gets loaded
-    :config (projectile-mode)
-    :custom ((projectile-completion-system 'ivy))
+      ;; runs projectile mode when the package gets loaded
+      :config (projectile-mode)
   
-    ;; gonna do that on other config to put under space
-    ;; binds projectile keybindings to C-c p
-    ;; :bind-keymap
-    ;; ("C-c p" . projectile-command-map)
+      ;; changes the completion to use ivy
+      :custom ((projectile-completion-system 'ivy))
   
-    :init
-    (when (file-directory-p "~/Projects")
-      (setq projectile-project-search-path '("~/Projects"))
+      ;; gonna do that on other config to put under space
+      ;; binds projectile keybindings to C-c p
+      ;; :bind-keymap
+      ;; ("C-c p" . projectile-command-map)
+  
+      :init
+      ;; if the directory ~/Projects exists
+      (when (file-directory-p "~/Projects")
+        ;; search for projects in this directory
+  ;;      (setq projectile-project-search-path '("~/Projects"))
+          (setq projectile-project-search-path '(
+                                                 "~/Projects"
+                                                 "~"
+                                                 ))
+      )
+  
+      ;; when you switch projects show dired
+      (setq projectile-switch-project-action #'projectile-dired)
     )
-    (setq projectile-switch-project-action #'projectile-dired)
-  )
   
-  (use-package counsel-projectile
-    :config (counsel-projectile-mode)
-  )
+    ;; 
+    (use-package counsel-projectile
+      :config (counsel-projectile-mode)
+    )
   
 #+end_src
+
+important functions in projectile:
+I reach that with =SPC p=
+
+=f projectile-find-file= 
+=p projectile-switch-project=
+=P projectile-test-project=
+=u projectile-run-project=
+
+the above 2 command don't do anything by default
+
+*** directory local variables
+
+helpful to configure emacs or projectile for a specific project
+
+create a file inside project folder that configures emacs variables
+so when you load a buffer inside that folder it automatically
+apply those variables to your buffer
+
+you can create that file from projectile:
+=E projectile-edit-dir-locas=
+
+that opens a new buffer with a file called =.dir-locals.el=
+
+it shows a list of possible variables
+
+then it asks for the variable's value
+
+then it adds to the file
+
+NOTE: when you edit the =.dir-locals.el= file it does not
+reload the variables in the oppened emacs 
+
+*** counsel projectile ripgrep
+
+counsel already has the ability to run searching tools like ripgrep
+giving a list of results for running grep over a particular folder
+
+with projectile it gives the ability to grep over current project
+
+use it by running:
+
+=counsel-projectile-rg=
+
+by using ivy you can press =C-c C-o= when on the list
+that will open a separate buffer where you can select text
+and use swiper
+
+pressing =ENTER= on any item will open the loction of the result
+on the buffer you were when you called =counsel-projectile-rg=
+
+the list that you get in ivy by pressing =C-o=
+in that new buffer you just need to press =o=
+
+to close that buffer press =q=
+
+** 
 
 * my own config
 ** keybindings for closing emacs
@@ -667,6 +732,7 @@ rebinding save-buffer
 (global-set-key (kbd "C-s") 'save-buffer)
 
 #+end_src
+
 
 * magit
 
@@ -683,6 +749,7 @@ rebinding save-buffer
 
 #+end_src
 
+
 * forge
 
 "offshoot" of magit it lets you pull down all the information from a
@@ -698,6 +765,7 @@ website for info on how to setup
 (use-package forge)
 
 #+end_src
+
 
 * Org Mode
 ** initial config
@@ -1536,6 +1604,23 @@ isin't it redundant?
 ** show bars above and below the cursor line
 like in vscode
 ** highlight current line
+** DONE have more than one projectile search path
+how to have a list of directories in:
+
+=(setq projectile-project-search-path '("~/Projects"))=
+
+is it just putting another item? like
+
+=(setq projectile-project-search-path '("~/Projects"=
+                                                                                             ="~/"=
+=))=
+
+yes that's exacly it
+** load .zshrc
+** use zsh in emacs
+** when switching projectile projects to directly to the readme
+show the readme if thats available
+
 * missing behavior/config
 ** keybidings
 *** SPC q q 
@@ -1595,7 +1680,8 @@ This repository is no longer maintained.
 This package is now a part of 
 evil-collection.
 * todos
-** go back on the videos and take notes of the tips and tricks he says
+** TODO go back on the videos and take notes of the tips and tricks he says
+** TODO get link for documentation of each package
 * emacs from scratch followalong
 ** go back to earlier videos and separate config based on video
 
