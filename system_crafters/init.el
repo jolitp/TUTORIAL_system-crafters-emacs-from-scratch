@@ -267,12 +267,12 @@
   (evil-set-initial-state 'dashboard 'normal)
 )
 
-(global-set-key (kbd "C-s") 'save-buffer)
-
 (use-package evil-collection
   :after evil
   :config
   (evil-collection-init))
+
+(global-set-key (kbd "C-s") 'save-buffer)
 
 (use-package hydra) 
 

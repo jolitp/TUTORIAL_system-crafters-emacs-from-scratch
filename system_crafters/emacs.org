@@ -571,20 +571,9 @@ vim keybindings in emacs
  IMPORTANT! C-z puts you in emacs-mode
  a mode where evil-keybindings don't work
  I struggled with that in the past
-  
-* my own config
-** keybindings for closing emacs
-* Keyboard behavior
-** bind save buffer
-rebinding save-buffer
+ 
+** evil-collection
 
-#+begin_src emacs-lisp
-
-(global-set-key (kbd "C-s") 'save-buffer)
-
-#+end_src
-
-* evil-collection
 collection of evil keybindings for different and many buffers/major
 modes/parts of emacs
 
@@ -594,6 +583,18 @@ modes/parts of emacs
   :after evil
   :config
   (evil-collection-init)) 
+
+#+end_src
+ 
+* my own config
+** keybindings for closing emacs
+* Keyboard behavior
+** bind save buffer
+rebinding save-buffer
+
+#+begin_src emacs-lisp
+
+(global-set-key (kbd "C-s") 'save-buffer)
 
 #+end_src
 
