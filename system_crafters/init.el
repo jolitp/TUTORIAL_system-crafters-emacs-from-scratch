@@ -286,8 +286,6 @@
 (rune/leader-keys
   "ts" '(hydra-text-scale/body :which-key "scale text"))
 
-(global-set-key (kbd "C-s") 'save-buffer)
-
 (use-package projectile
   :diminish projectile-mode
   :config (projectile-mode)
@@ -304,6 +302,8 @@
 (use-package counsel-projectile
   :config (counsel-projectile-mode)
 )
+
+(global-set-key (kbd "C-s") 'save-buffer)
 
 (use-package magit
 

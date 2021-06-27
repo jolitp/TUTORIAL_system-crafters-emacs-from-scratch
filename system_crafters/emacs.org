@@ -618,19 +618,8 @@ Hydra.
 #+end_src
 
 * TODO Emacs From Scratch #4 - Projectile and Magit
-* my own config
-** keybindings for closing emacs
-* Keyboard behavior
-** bind save buffer
-rebinding save-buffer
 
-#+begin_src emacs-lisp
-
-(global-set-key (kbd "C-s") 'save-buffer)
-
-#+end_src
-
-* projectile
+** projectile
 
 Projectile is a project interaction library for Emacs.
 
@@ -652,6 +641,18 @@ Projectile is a project interaction library for Emacs.
 (use-package counsel-projectile
   :config (counsel-projectile-mode)
 )
+
+#+end_src
+
+* my own config
+** keybindings for closing emacs
+* Keyboard behavior
+** bind save buffer
+rebinding save-buffer
+
+#+begin_src emacs-lisp
+
+(global-set-key (kbd "C-s") 'save-buffer)
 
 #+end_src
 
