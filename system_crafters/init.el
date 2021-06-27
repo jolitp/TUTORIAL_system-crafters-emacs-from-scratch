@@ -224,11 +224,6 @@
   )
 )
 
-(use-package swiper
-  :ensure t)
-
-(global-set-key (kbd "C-s") 'save-buffer)
-
 (use-package evil
   :init
   (setq evil-want-integration t)
@@ -258,6 +253,11 @@
   ;; IMPORTANT! C-z puts you in emacs-mode
   ;; a mode where evil-keybindings don't work
   ;; I struggled with that in the past
+
+(use-package swiper
+  :ensure t)
+
+(global-set-key (kbd "C-s") 'save-buffer)
 
 (use-package evil-collection
   :after evil

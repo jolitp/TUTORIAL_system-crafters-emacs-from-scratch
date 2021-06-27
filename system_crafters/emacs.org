@@ -442,7 +442,6 @@ displayed correctly
 
 #+end_src
 
-
 ** general.el keybindings
 
 general.el provides a more convenient method for binding keys in emacs
@@ -462,7 +461,7 @@ general.el provides a more convenient method for binding keys in emacs
 #+end_src
 
 he doesn't use general.el this way the way he uses it is to maintain a
-global key prefix like <space> in spacemacs to od this you call
+global key prefix like <space> in spacemacs to add this you call
 =(general-create-definer ...)=
 
 #+begin_src emacs-lisp
@@ -499,38 +498,7 @@ global key prefix like <space> in spacemacs to od this you call
   
 #+end_src
 
-* my own config
-** keybindings for closing emacs
-
-* swiper
-
-Swiper is the interactive find I've been using with =SPC s s=
-
-got the following error because, he had the package installed already
-in his computer and I didn't
-
-command-execute: Autoloading file /.../ivy.elc failed to define
-function swiper needed to install swiper for the error to go away
-
-#+begin_src emacs-lisp
-
-(use-package swiper
-  :ensure t)
-
-
-#+end_src
-
-* Keyboard behavior
-** bind save buffer
-rebinding save-buffer
-
-#+begin_src emacs-lisp
-
-(global-set-key (kbd "C-s") 'save-buffer)
-
-#+end_src
-
-* evil-mode
+** evil-mode
 vim keybindings in emacs
 
 #+begin_src emacs-lisp
@@ -565,6 +533,35 @@ vim keybindings in emacs
   ;; a mode where evil-keybindings don't work
   ;; I struggled with that in the past
 
+#+end_src
+
+* my own config
+** keybindings for closing emacs
+* swiper
+
+Swiper is the interactive find I've been using with =SPC s s=
+
+got the following error because, he had the package installed already
+in his computer and I didn't
+
+command-execute: Autoloading file /.../ivy.elc failed to define
+function swiper needed to install swiper for the error to go away
+
+#+begin_src emacs-lisp
+
+(use-package swiper
+  :ensure t)
+
+
+#+end_src
+
+* Keyboard behavior
+** bind save buffer
+rebinding save-buffer
+
+#+begin_src emacs-lisp
+
+(global-set-key (kbd "C-s") 'save-buffer)
 
 #+end_src
 
