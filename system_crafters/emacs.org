@@ -79,6 +79,12 @@ notable sub items of that are:
 =describe-function=
 =describe-variable=
 =describe-key=
+** run code directly from open buffer
+
+using =C-x C-e= calls =eval-last-sexp=
+evaluating the block that is before the cursor
+
+put the cursor on the lats parenthesis of a lisp expression
 
 ** Package sources
 
@@ -461,8 +467,7 @@ gives more information
 
 ** doom-themes
 already added at part 1
-* TODO Emacs From Scratch #3 - Key Bindings and Evil
-
+* DONE Emacs From Scratch #3 - Key Bindings and Evil
 ** all the icons
 
 the first time you load your configuration on a new machine, you'll
@@ -586,7 +591,6 @@ modes/parts of emacs
 
 #+end_src
  
-
 ** hydra
 
 allows to set transient keybindings (temporary keybindings)
@@ -613,6 +617,7 @@ Hydra.
 
 #+end_src
 
+* TODO Emacs From Scratch #4 - Projectile and Magit
 * my own config
 ** keybindings for closing emacs
 * Keyboard behavior
@@ -1584,4 +1589,7 @@ evil-collection.
 ** create a git repo for this project
 
 ** stopped at
-https://youtu.be/xaZMwNELaJY?t=646
+*** moving lisp snippets
+https://www.youtube.com/watch?v=INTu30BHZGk&list=PLEoMzSkcN8oPH1au7H6B7bBJ4ZO7BXjSZ&index=4
+*** getting tips and tricks
+https://youtu.be/74zOY-vgkyw?t=1442
