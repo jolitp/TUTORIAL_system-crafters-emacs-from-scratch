@@ -234,6 +234,8 @@
    "bp" '(previous-buffer :which-key "previous buffer")
    "qq" '(save-buffers-kill-emacs :which-key "quit emacs")
 
+   "p" '(projectile-command-map :which-key "projectile")
+
    ;; not working?
    "tw" '(window-split-toggle :which-key "toggle window split h/v")
   )
@@ -246,7 +248,8 @@
   (setq evil-want-C-u-scroll t)
   (setq evil-want-C-i-jump nil)
 
-  :hook (evil-mode . rune/evil-hook)
+  ;; this is messing things up
+  ;; :hook (evil-mode . rune/evil-hook)
   :config
   (evil-mode 1) 
   ;; bind keys only in insert mode (don't want that)
@@ -287,11 +290,18 @@
   "ts" '(hydra-text-scale/body :which-key "scale text"))
 
 (use-package projectile
+  ;; hides projectile on the mode line
   :diminish projectile-mode
+
+  ;; runs projectile mode when the package gets loaded
   :config (projectile-mode)
   :custom ((projectile-completion-system 'ivy))
-  :bind-keymap
-  ("C-c p" . projectile-command-map)
+
+  ;; gonna do that on other config to put under space
+  ;; binds projectile keybindings to C-c p
+  ;; :bind-keymap
+  ;; ("C-c p" . projectile-command-map)
+
   :init
   (when (file-directory-p "~/Projects")
     (setq projectile-project-search-path '("~/Projects"))
