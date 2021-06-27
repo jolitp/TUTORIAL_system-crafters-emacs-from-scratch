@@ -54,6 +54,23 @@ https://github.com/daviwil/emacs-from-scratch
 https://github.com/daviwil/dotfiles/blob/master/Emacs.org
 * DONE Emacs From Scratch #1 - Getting Started with a Basic Usable Configuration
 https://www.youtube.com/watch?v=74zOY-vgkyw&list=PLEoMzSkcN8oPH1au7H6B7bBJ4ZO7BXjSZ&index=1
+** swiper
+
+Swiper is the interactive find I've been using with =SPC s s=
+
+got the following error because, he had the package installed already
+in his computer and I didn't
+
+command-execute: Autoloading file /.../ivy.elc failed to define
+function swiper needed to install swiper for the error to go away
+
+#+begin_src emacs-lisp
+
+(use-package swiper
+  :ensure t)
+
+#+end_src
+
 ** describe commands
 by default =C-h= host the help commands
 
@@ -61,6 +78,7 @@ notable sub items of that are:
 =describe-function=
 =describe-variable=
 =describe-key=
+
 
 ** Package sources
 
@@ -537,24 +555,6 @@ vim keybindings in emacs
 
 * my own config
 ** keybindings for closing emacs
-* swiper
-
-Swiper is the interactive find I've been using with =SPC s s=
-
-got the following error because, he had the package installed already
-in his computer and I didn't
-
-command-execute: Autoloading file /.../ivy.elc failed to define
-function swiper needed to install swiper for the error to go away
-
-#+begin_src emacs-lisp
-
-(use-package swiper
-  :ensure t)
-
-
-#+end_src
-
 * Keyboard behavior
 ** bind save buffer
 rebinding save-buffer
@@ -1448,8 +1448,10 @@ in the commit message to confirm
 ** org-appear for links
 can I have something like =org-appear= for links?  show the full markup
  for links when the cursor is on it
-** make selections get whole line when going up/down
+** DONE make selections get whole line when going up/down
 how to make selections that go up and down select the whole line?
+
+pressing Shift-v or captal V will do that
 ** tabs like in a browser
 ** left panel as a file browser
 ** change visual-fill-column width based on the window size

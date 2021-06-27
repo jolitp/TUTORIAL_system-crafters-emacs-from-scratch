@@ -17,6 +17,9 @@
   (visual-line-mode)
 )
 
+(use-package swiper
+  :ensure t)
+
 ; initialize package sources
 (require 'package)
 
@@ -253,9 +256,6 @@
   ;; IMPORTANT! C-z puts you in emacs-mode
   ;; a mode where evil-keybindings don't work
   ;; I struggled with that in the past
-
-(use-package swiper
-  :ensure t)
 
 (global-set-key (kbd "C-s") 'save-buffer)
 
