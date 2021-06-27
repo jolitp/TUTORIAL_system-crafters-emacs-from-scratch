@@ -719,22 +719,7 @@ in that new buffer you just need to press =o=
 
 to close that buffer press =q=
 
-** 
-
-* my own config
-** keybindings for closing emacs
-* Keyboard behavior
-** bind save buffer
-rebinding save-buffer
-
-#+begin_src emacs-lisp
-
-(global-set-key (kbd "C-s") 'save-buffer)
-
-#+end_src
-
-
-* magit
+** magit
 
 #+begin_src emacs-lisp
 
@@ -749,6 +734,18 @@ rebinding save-buffer
 
 #+end_src
 
+*** evil-magit
+is unnecessary, it is part of evil-collection now
+
+* my own config
+** bind save buffer
+rebinding save-buffer
+
+#+begin_src emacs-lisp
+
+(global-set-key (kbd "C-s") 'save-buffer)
+
+#+end_src
 
 * forge
 
@@ -765,7 +762,6 @@ website for info on how to setup
 (use-package forge)
 
 #+end_src
-
 
 * Org Mode
 ** initial config

@@ -324,8 +324,6 @@
     :config (counsel-projectile-mode)
   )
 
-(global-set-key (kbd "C-s") 'save-buffer)
-
 (use-package magit
 
   ;; makes the diff window 
@@ -334,6 +332,8 @@
   :custom
   (magit-display-buffer-function #'magit-display-buffer-same-windows-except-diff-v1)
 )
+
+(global-set-key (kbd "C-s") 'save-buffer)
 
 (use-package forge)
 
