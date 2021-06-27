@@ -54,23 +54,6 @@ https://github.com/daviwil/emacs-from-scratch
 https://github.com/daviwil/dotfiles/blob/master/Emacs.org
 * DONE Emacs From Scratch #1 - Getting Started with a Basic Usable Configuration
 https://www.youtube.com/watch?v=74zOY-vgkyw&list=PLEoMzSkcN8oPH1au7H6B7bBJ4ZO7BXjSZ&index=1
-** swiper
-
-Swiper is the interactive find I've been using with =SPC s s=
-
-got the following error because, he had the package installed already
-in his computer and I didn't
-
-command-execute: Autoloading file /.../ivy.elc failed to define
-function swiper needed to install swiper for the error to go away
-
-#+begin_src emacs-lisp
-
-(use-package swiper
-  :ensure t)
-
-#+end_src
-
 ** describe commands
 by default =C-h= host the help commands
 
@@ -238,6 +221,23 @@ this is more useful for him to help in the video, but can be useful for me too
 #+begin_src emacs-lisp
 
 (use-package command-log-mode)
+
+#+end_src
+
+** swiper
+
+Swiper is the interactive find I've been using with =SPC s s=
+
+got the following error because, he had the package installed already
+in his computer and I didn't
+
+command-execute: Autoloading file /.../ivy.elc failed to define
+function swiper needed to install swiper for the error to go away
+
+#+begin_src emacs-lisp
+
+(use-package swiper
+  :ensure t)
 
 #+end_src
 

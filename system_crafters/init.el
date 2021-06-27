@@ -17,9 +17,6 @@
   (visual-line-mode)
 )
 
-(use-package swiper
-  :ensure t)
-
 ; initialize package sources
 (require 'package)
 
@@ -94,6 +91,9 @@
 (load-theme 'doom-dracula t)
 
 (use-package command-log-mode)
+
+(use-package swiper
+  :ensure t)
 
 (use-package ivy
   ;; diminish hides the minor mode 
