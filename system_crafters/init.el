@@ -200,47 +200,6 @@
 
 (use-package all-the-icons)
 
-(use-package general)	  
-
-;; (general-define-key
- ;; it can be a list of 
- ;; keybindings also:
- ;; "C-M-k" 'some-function
- ;; "C-M-j" 'counsel-switch-buffer
-;; )
-
-(use-package general
-  :config
-  (general-create-definer rune/leader-keys
-    :keymaps '(normal insert visual emacs)
-    :prefix "SPC"
-    :global-prefix "C-SPC")
-
-  (rune/leader-keys
-   "t" '(
-         :ignore t
-         :which-key "toggles"
-         )
-   "tt" '(counsel-load-theme :which-key "choose theme")
-   "fs" '(save-buffer :which-key "save buffer")
-   "ss" '(swiper :which-key "search")
-   ":" '(counsel-M-x :which-key "run command")
-   "ff" '(counsel-find-file :which-key "find file")
-   ";" '(eval-last-sexp :which-key "eval expression")
-   "TAB" '(counsel-switch-buffer :which-key "switch buffer")
-   "bd" '(kill-buffer :which-key "delete buffer")
-   "bk" '(kill-buffer :which-key "kill buffer")
-   "bn" '(next-buffer :which-key "next buffer")
-   "bp" '(previous-buffer :which-key "previous buffer")
-   "qq" '(save-buffers-kill-emacs :which-key "quit emacs")
-
-   "p" '(projectile-command-map :which-key "projectile")
-
-   ;; not working?
-   "tw" '(window-split-toggle :which-key "toggle window split h/v")
-  )
-)
-
 (use-package evil
   :init
   (setq evil-want-integration t)
@@ -268,6 +227,55 @@
 
   ;; (evil-set-initial-state 'messages-buffer-mode 'normal)
   (evil-set-initial-state 'dashboard 'normal)
+)
+
+(use-package general)	  
+
+;; (general-define-key
+ ;; it can be a list of 
+ ;; keybindings also:
+ ;; "C-M-k" 'some-function
+ ;; "C-M-j" 'counsel-switch-buffer
+;; )
+
+(use-package general
+  :config
+  (general-create-definer rune/leader-keys
+    :keymaps '(normal insert visual emacs)
+    :prefix "SPC"
+    :global-prefix "C-SPC")
+
+  (rune/leader-keys
+   "t" '(
+         :ignore t
+         :which-key "toggles"
+         )
+   "tt" '(counsel-load-theme :which-key "choose theme")
+   "ss" '(swiper :which-key "search")
+
+   ":" '(counsel-M-x :which-key "run command")
+
+   "fs" '(save-buffer :which-key "save buffer")
+   "ff" '(counsel-find-file :which-key "find file")
+
+   ";" '(eval-last-sexp :which-key "eval expression")
+
+   "TAB" '(counsel-switch-buffer :which-key "switch buffer")
+
+   "bd" '(kill-buffer :which-key "delete buffer")
+   "bk" '(kill-buffer :which-key "kill buffer")
+   "bn" '(next-buffer :which-key "next buffer")
+   "bp" '(previous-buffer :which-key "previous buffer")
+
+   "qq" '(save-buffers-kill-emacs :which-key "quit emacs")
+
+   "p" '(projectile-command-map :which-key "projectile")
+
+   "gg" '(magit-status :which-key "git status")
+
+   ;; not working?
+   "tw" '(window-split-toggle :which-key "toggle window split h/v")
+  )
 )
 
 (use-package evil-collection
@@ -329,8 +337,8 @@
   ;; makes the diff window 
   ;; happen in the same window you are in
   ;; the defalt is showing another window
-  :custom
-  (magit-display-buffer-function #'magit-display-buffer-same-windows-except-diff-v1)
+;;  :custom
+;;  (magit-display-buffer-function #'magit-display-buffer-same-windows-except-diff-v1)
 )
 
 (global-set-key (kbd "C-s") 'save-buffer)
@@ -714,3 +722,15 @@
 ;; documentation for supported 
 ;; org-babel languages:
 ;; https://orgmode.org/worg/org-contrib/babel/languages/index.html
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(safe-local-variable-values (quote ((projectile-project-run-cmd . "ls")))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
