@@ -185,19 +185,14 @@
 
 (use-package all-the-icons)
 
-(use-package swiper
-  :ensure t)
-
-(global-set-key (kbd "C-s") 'save-buffer)
-
 (use-package general)	  
 
-(general-define-key
+;; (general-define-key
  ;; it can be a list of 
  ;; keybindings also:
  ;; "C-M-k" 'some-function
- "C-M-j" 'counsel-switch-buffer
-)
+ ;; "C-M-j" 'counsel-switch-buffer
+;; )
 
 (use-package general
   :config
@@ -228,6 +223,11 @@
    "tw" '(window-split-toggle :which-key "toggle window split h/v")
   )
 )
+
+(use-package swiper
+  :ensure t)
+
+(global-set-key (kbd "C-s") 'save-buffer)
 
 (use-package evil
   :init

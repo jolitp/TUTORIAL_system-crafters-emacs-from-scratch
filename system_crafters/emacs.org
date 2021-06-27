@@ -441,6 +441,64 @@ displayed correctly
 (use-package all-the-icons)
 
 #+end_src
+
+
+** general.el keybindings
+
+general.el provides a more convenient method for binding keys in emacs
+(for both evil and non-evil users).
+
+#+begin_src emacs-lisp
+ 
+(use-package general)	  
+
+;; (general-define-key
+ ;; it can be a list of 
+ ;; keybindings also:
+ ;; "C-M-k" 'some-function
+ ;; "C-M-j" 'counsel-switch-buffer
+;; )
+
+#+end_src
+
+he doesn't use general.el this way the way he uses it is to maintain a
+global key prefix like <space> in spacemacs to od this you call
+=(general-create-definer ...)=
+
+#+begin_src emacs-lisp
+
+  (use-package general
+    :config
+    (general-create-definer rune/leader-keys
+      :keymaps '(normal insert visual emacs)
+      :prefix "SPC"
+      :global-prefix "C-SPC")
+  
+    (rune/leader-keys
+     "t" '(
+           :ignore t
+           :which-key "toggles"
+           )
+     "tt" '(counsel-load-theme :which-key "choose theme")
+     "fs" '(save-buffer :which-key "save buffer")
+     "ss" '(swiper :which-key "search")
+     ":" '(counsel-M-x :which-key "run command")
+     "ff" '(counsel-find-file :which-key "find file")
+     ";" '(eval-last-sexp :which-key "eval expression")
+     "TAB" '(counsel-switch-buffer :which-key "switch buffer")
+     "bd" '(kill-buffer :which-key "delete buffer")
+     "bk" '(kill-buffer :which-key "kill buffer")
+     "bn" '(next-buffer :which-key "next buffer")
+     "bp" '(previous-buffer :which-key "previous buffer")
+     "qq" '(save-buffers-kill-emacs :which-key "quit emacs")
+  
+     ;; not working?
+     "tw" '(window-split-toggle :which-key "toggle window split h/v")
+    )
+  )
+  
+#+end_src
+
 * my own config
 ** keybindings for closing emacs
 
@@ -470,60 +528,6 @@ rebinding save-buffer
 
 (global-set-key (kbd "C-s") 'save-buffer)
 
-#+end_src
-
-* general.el
-general.el provides a more convenient method for binding keys in emacs
-(for both evil and non-evil users).
-
-#+begin_src emacs-lisp
- 
-(use-package general)	  
-
-(general-define-key
- ;; it can be a list of 
- ;; keybindings also:
- ;; "C-M-k" 'some-function
- "C-M-j" 'counsel-switch-buffer
-)
-
-#+end_src
-
-he doesn't use general.el this way the way he uses it is to maintain a
-global key prefix like <space> in spacemacs to od this you call
-=(general-create-definer ...)=
-
-#+begin_src emacs-lisp
-  (use-package general
-    :config
-    (general-create-definer rune/leader-keys
-      :keymaps '(normal insert visual emacs)
-      :prefix "SPC"
-      :global-prefix "C-SPC")
-    
-    (rune/leader-keys
-     "t" '(
-           :ignore t
-           :which-key "toggles"
-           )
-     "tt" '(counsel-load-theme :which-key "choose theme")
-     "fs" '(save-buffer :which-key "save buffer")
-     "ss" '(swiper :which-key "search")
-     ":" '(counsel-M-x :which-key "run command")
-     "ff" '(counsel-find-file :which-key "find file")
-     ";" '(eval-last-sexp :which-key "eval expression")
-     "TAB" '(counsel-switch-buffer :which-key "switch buffer")
-     "bd" '(kill-buffer :which-key "delete buffer")
-     "bk" '(kill-buffer :which-key "kill buffer")
-     "bn" '(next-buffer :which-key "next buffer")
-     "bp" '(previous-buffer :which-key "previous buffer")
-     "qq" '(save-buffers-kill-emacs :which-key "quit emacs")
-  
-     ;; not working?
-     "tw" '(window-split-toggle :which-key "toggle window split h/v")
-    )
-  )
-  
 #+end_src
 
 * evil-mode
@@ -1380,7 +1384,7 @@ that returns a boolean, t(true) or nil(false)
 ** symbols in lisp
 the 'name synthax means it's a symbol in lisp.
 
-In the following code
+In the following code, for example
 
 (load-theme 'doom-dracula t) 
 ;; loads the theme
@@ -1410,6 +1414,11 @@ does evil mode uses those commands behind the hood for the =.= key?
 how to get relative line numbers?  and when I use evil mode, how to
 change line numbers from relative to absolute based on whether I'm on
 normal mode or edit mode
+** have different layouts for specific things
+like a layout for programming in certain languages with a pannel on
+the left and tabs
+
+and a layout for org where the other windows are hidden
 ** line numbers for org mode src blocks
 is there a way to have a separate line number for src blocks based on
 the output of the org untangle or watever?
@@ -1553,4 +1562,4 @@ evil-collection.
 ** create a git repo for this project
 
 ** stopped at
-https://youtu.be/IspAZtNTslY?t=2004
+https://youtu.be/xaZMwNELaJY?t=646
