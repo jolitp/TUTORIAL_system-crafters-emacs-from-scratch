@@ -341,8 +341,6 @@
 ;;  (magit-display-buffer-function #'magit-display-buffer-same-windows-except-diff-v1)
 )
 
-(global-set-key (kbd "C-s") 'save-buffer)
-
 (use-package forge)
 
 (use-package org
@@ -354,6 +352,8 @@
 	org-hide-emphasis-markers t
   )
 )
+
+(global-set-key (kbd "C-s") 'save-buffer)
 
 (use-package org-appear
   :hook (org-mode . org-appear-mode))
@@ -722,15 +722,3 @@
 ;; documentation for supported 
 ;; org-babel languages:
 ;; https://orgmode.org/worg/org-contrib/babel/languages/index.html
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(safe-local-variable-values (quote ((projectile-project-run-cmd . "ls")))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )

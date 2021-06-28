@@ -628,7 +628,7 @@ Hydra.
 
 #+end_src
 
-* TODO Emacs From Scratch #4 - Projectile and Magit
+* DONE Emacs From Scratch #4 - Projectile and Magit
 ** projectile
 
 Projectile is a project interaction library for Emacs.
@@ -726,7 +726,6 @@ the list that you get in ivy by pressing =C-o=
 in that new buffer you just need to press =o=
 
 to close that buffer press =q=
-
 ** magit
 
 #+begin_src emacs-lisp
@@ -745,17 +744,35 @@ to close that buffer press =q=
 *** evil-magit
 is unnecessary, it is part of evil-collection now
 
-* my own config
-** bind save buffer
-rebinding save-buffer
+*** deleting files from magit
 
-#+begin_src emacs-lisp
+put the cursor over the file and press =x=
+that will discard changes to the file
 
-(global-set-key (kbd "C-s") 'save-buffer)
+*** a better alternative to rebase in emacs and magit
 
-#+end_src
+when commiting, instead of pressing =c c=
 
-* forge
+use =instant fixup= by pressin =F=
+
+that gives a list of recent commits
+
+by pressin =C-c C-c= on a line (a recent commit)
+
+that will add the recent commit to the current commit(is that it?)
+
+*** actual rebase
+
+you can do that too
+
+he explains that in detail, but I don't know enough about rebase to understand...
+
+** forge
+
+forge lets you pull down all the information from a github repository,
+like issues and pull requests
+
+you can interact with those from emacs
 
 "offshoot" of magit it lets you pull down all the information from a
 particular git repository like issues and pull requests, you can
@@ -765,13 +782,20 @@ github issues in emacs
 forge needs authentication with github check the project page /
 website for info on how to setup
 
+for each project on github you need to run =forge-pull=
+
+after that you will see on magit screen a =issues= section
+
 #+begin_src emacs-lisp
 
 (use-package forge)
 
 #+end_src
 
-* Org Mode
+* TODO Emacs From Scratch #5 - Org Mode Basics
+** org mode manual
+https://orgmode.org/manual/
+
 ** initial config
 
 #+begin_src emacs-lisp
@@ -788,6 +812,17 @@ website for info on how to setup
 
 #+end_src
 
+* my own config
+** bind save buffer
+rebinding save-buffer
+
+#+begin_src emacs-lisp
+
+(global-set-key (kbd "C-s") 'save-buffer)
+
+#+end_src
+
+* Org Mode
 ** org-appear
 
 from davewill's config:
@@ -1318,6 +1353,7 @@ appropriate language
 
 #+end_src
 
+
 * Applications
 
 It is possible to use emacs org-mode write to any file, not only lisp
@@ -1624,6 +1660,8 @@ yes that's exacly it
 ** use zsh in emacs
 ** when switching projectile projects to directly to the readme
 show the readme if thats available
+** setup emacs to ask for passphrases
+like when you have a ssh key with a passphrase
 
 * missing behavior/config
 ** keybidings
@@ -1693,6 +1731,6 @@ evil-collection.
 
 ** stopped at
 *** moving lisp snippets
-https://www.youtube.com/watch?v=INTu30BHZGk&list=PLEoMzSkcN8oPH1au7H6B7bBJ4ZO7BXjSZ&index=4
+
 *** getting tips and tricks
 https://youtu.be/74zOY-vgkyw?t=1442
