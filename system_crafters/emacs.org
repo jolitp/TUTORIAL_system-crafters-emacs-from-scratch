@@ -812,6 +812,23 @@ https://orgmode.org/manual/
 
 #+end_src
 
+** org-appear
+
+from davewill's config:
+
+This package makes it much easier to edit Org documents when
+org-hide-emphasis-markers is turned on.  It temporarily shows the
+emphasis markers around certain markup elements when you place your
+cursor inside of them. No more fumbling around with = and *
+characters!
+
+#+begin_src emacs-lisp
+
+(use-package org-appear
+  :hook (org-mode . org-appear-mode))
+
+#+end_src
+
 * my own config
 ** bind save buffer
 rebinding save-buffer
@@ -823,24 +840,6 @@ rebinding save-buffer
 #+end_src
 
 * Org Mode
-** org-appear
-
-from davewill's config:
-
-This package makes it much easier to edit Org documents when
-org-hide-emphasis-markers is turned on.  It temporarily shows the
-emphasis markers around certain markup elements when you place your
-cursor inside of them. No more fumbling around with = and *
-characters!
-
-(not really working at the moment)
-
-#+begin_src emacs-lisp
-
-(use-package org-appear
-  :hook (org-mode . org-appear-mode))
-
-#+end_src
 
 ** org-bullets
 package: org-bullets makes the bullets on headlines look nicer by

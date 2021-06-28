@@ -353,10 +353,10 @@
   )
 )
 
-(global-set-key (kbd "C-s") 'save-buffer)
-
 (use-package org-appear
   :hook (org-mode . org-appear-mode))
+
+(global-set-key (kbd "C-s") 'save-buffer)
 
 (use-package org-bullets
   :after org

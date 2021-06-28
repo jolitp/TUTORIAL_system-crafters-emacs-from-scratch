@@ -1,1 +1,1 @@
-("~/Projects/emacs_configs/" "~/Downloads/" "~/.spacemacs/" "~/.oh-my-zsh/" "~/.emacs.d.old/" "~/.emacs.d/" "~/.doom-emacs/" "~/Projects/automation_scripts/")
+("~/Projects/emacs_configs/" "~/.spacemacs/" "~/.oh-my-zsh/" "~/.emacs.d.old/" "~/.emacs.d/" "~/.doom-emacs/" "~/Projects/automation_scripts/" "~/Downloads/")
