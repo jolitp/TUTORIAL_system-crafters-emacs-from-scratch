@@ -829,19 +829,8 @@ characters!
 
 #+end_src
 
-* my own config
-** bind save buffer
-rebinding save-buffer
-
-#+begin_src emacs-lisp
-
-(global-set-key (kbd "C-s") 'save-buffer)
-
-#+end_src
-
-* Org Mode
-
 ** org-bullets
+
 package: org-bullets makes the bullets on headlines look nicer by
 default it starts nice, but as there is more indentation the symbols
 start to get a bit weird
@@ -873,6 +862,18 @@ code below giving error: error: Invalid face, org-level-1
 
 #+end_src
 
+
+* my own config
+** bind save buffer
+rebinding save-buffer
+
+#+begin_src emacs-lisp
+
+(global-set-key (kbd "C-s") 'save-buffer)
+
+#+end_src
+
+* Org Mode
 ** faces(fonts) for heading levels
 
 #+begin_src emacs-lisp

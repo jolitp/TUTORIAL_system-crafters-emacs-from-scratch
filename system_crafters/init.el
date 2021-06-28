@@ -356,8 +356,6 @@
 (use-package org-appear
   :hook (org-mode . org-appear-mode))
 
-(global-set-key (kbd "C-s") 'save-buffer)
-
 (use-package org-bullets
   :after org
   :hook (org-mode . org-bullets-mode)
@@ -378,6 +376,8 @@
 			     )
   )
 )
+
+(global-set-key (kbd "C-s") 'save-buffer)
 
 (use-package org
   :config
